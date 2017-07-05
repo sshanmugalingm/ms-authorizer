@@ -1,6 +1,7 @@
 package au.com.bglcorp.service.authorization;
 
-import au.com.bglcorp.domain.jwt.TokenPayload;
+import au.com.bglcorp.domain.token.TokenPayload;
+import au.com.bglcorp.dto.TokenDetails;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface AuthorizationService {
 
-    Boolean isAuthorized(TokenPayload payload, List<String> supportedAuthorities);
+    Boolean isAuthorized(TokenPayload payload, TokenDetails tokenDetails);
 
 }

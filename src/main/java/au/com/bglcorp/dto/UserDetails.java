@@ -3,15 +3,16 @@ package au.com.bglcorp.dto;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by senthurshanmugalingm on 4/07/2017.
  */
-public class UserDetailsWrapper {
+public class UserDetails {
 
     String username;
     String salt;
-    List<String> supportedAuthorities;
+    Map<String, List<String>> authorities;
 
     public String getUsername() {
         return username;
@@ -29,17 +30,17 @@ public class UserDetailsWrapper {
         this.salt = salt;
     }
 
-    public List<String> getSupportedAuthorities() {
-        return supportedAuthorities;
+    public Map<String, List<String>> getAuthorities() {
+        return authorities;
     }
 
-    public void setSupportedAuthorities(List<String> supportedAuthorities) {
-        this.supportedAuthorities = supportedAuthorities;
+    public void setAuthorities(Map<String, List<String>> authorities) {
+        this.authorities = authorities;
     }
 
     public void validate() {
         Assert.notNull(username, "Username cannot be null");
         Assert.notNull(salt, "User Salt cannot be null");
-        Assert.notNull(supportedAuthorities, "Supported Authorities cannot be null");
+        Assert.notNull(authorities, "Firm Authorities cannot be null");
     }
 }

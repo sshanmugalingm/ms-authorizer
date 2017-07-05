@@ -1,6 +1,5 @@
 package au.com.bglcorp.util;
 
-import au.com.bglcorp.domain.jwt.TokenPayload;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -8,7 +7,7 @@ import com.google.gson.GsonBuilder;
 /**
  * Created by senthurshanmugalingm on 30/06/2017.
  */
-public interface AuthorizerUtil {
+public interface JsonUtil {
 
     GsonBuilder gsonBuilder = new GsonBuilder();
 

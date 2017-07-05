@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
+import java.util.Optional;
 
 /**
  * Created by senthurshanmugalingm on 4/07/2017.
@@ -14,7 +16,7 @@ import javax.annotation.PostConstruct;
 @Repository
 public class TokenRepositoryImpl implements TokenRepository {
 
-    private static final String KEYNAME = "TOKENKEY";
+    private static final String KEYNAME = "AUTHKEY";
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
@@ -32,8 +34,8 @@ public class TokenRepositoryImpl implements TokenRepository {
     }
 
     @Override
-    public Token findToken(String tokenKey) {
-        return (Token) hashOperations.get(KEYNAME, tokenKey);
+    public Optional<Token> findByTokenKey(String tokenKey) {
+        return Optional.of ((Token) hashOperations.get(KEYNAME, tokenKey));
     }
 
     @Override

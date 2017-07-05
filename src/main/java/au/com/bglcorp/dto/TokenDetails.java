@@ -7,9 +7,10 @@ import java.util.List;
 /**
  * Created by senthurshanmugalingm on 5/07/2017.
  */
-public class TokenDetailsWrapper {
+public class TokenDetails {
 
     String token;
+    String firmShortName;
     List<String> authorities;
 
     public String getToken() {
@@ -28,8 +29,17 @@ public class TokenDetailsWrapper {
         this.authorities = authorities;
     }
 
+    public String getFirmShortName() {
+        return firmShortName;
+    }
+
+    public void setFirmShortName(String firmShortName) {
+        this.firmShortName = firmShortName;
+    }
+
     public void validate() {
         Assert.notNull(token, "Token cannot be null");
+        Assert.notNull(firmShortName, "Firm Short Name be null");
         Assert.notNull(authorities, "Supported Authorities cannot be null");
     }
 }

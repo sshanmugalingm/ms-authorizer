@@ -1,6 +1,6 @@
 package au.com.bglcorp.domain.redis;
 
-import au.com.bglcorp.domain.jwt.TokenPayload;
+import au.com.bglcorp.domain.token.TokenPayload;
 import java.io.Serializable;
 
 /**
