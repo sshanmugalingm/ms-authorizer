@@ -9,7 +9,7 @@ redis:
   server:
      port: 9904
      hostName: localhost
-security:
+security: #Use Basic REVWRUxPUE1FTlQ6MDM2ODUzMmYtNGZkYi00ZjkzLWE0NGYtNTdkNThlMmVlNWVm
   user:
     name: DEVELOPMENT
     password: 0368532f-4fdb-4f93-a44f-57d58e2ee5ef
