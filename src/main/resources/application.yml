@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: dev
+---
+
+spring:
+  profiles: dev
+redis:
+  server:
+     port: 9904
+     hostName: localhost
+security:
+  user:
+    name: DEVELOPMENT
+    password: 0368532f-4fdb-4f93-a44f-57d58e2ee5ef
+
+---
+spring:
+  profiles: uat
+redis:
+  server:
+     port: 6379
+     hostName: elasticache-logstash.datastore.test.int.sf360.net.au
+security:
+  user: #Use Basic VUFUOjdkNDE2ZmM0LTQ5NjMtNGY4ZC05NzhmLWQxMGUwY2ZmYzI3Mg== as the Authorization Header
+    name: UAT
+    password: 7d416fc4-4963-4f8d-978f-d10e0cffc272
+
+---
+spring:
+  profiles: staging
+redis:
+  server:
+     port: 6379
+     hostName: elasticache-logstash.datastore.staging.int.sf360.net.au
+security:
+  user: #Use Basic U1RBR0lORzpiMDg3MGEzZi1jMmMwLTQyMmItYTZmNC1iMGQwNmNhOWE5YTE= as the Authorization Header
+    name: STAGING
+    password: b0870a3f-c2c0-422b-a6f4-b0d06ca9a9a1
+
+---
+spring:
+  profiles: production
+redis:
+  server:
+     port: 6379
+     hostName: redis-prod.internal.sf360.net.au
+security:
+  user: #Use Basic UFJPRFVDVElPTjpjYmUyMzJhMi1jOTVlLTRhMzktOTE5Ni04MzVkNTJmMzZjMzc= as the Authorization Header
+    name: PRODUCTION
+    password: cbe232a2-c95e-4a39-9196-835d52f36c37

@@ -35,7 +35,7 @@ public class TokenRepositoryImpl implements TokenRepository {
 
     @Override
     public Optional<Token> findByTokenKey(String tokenKey) {
-        return Optional.of ((Token) hashOperations.get(KEYNAME, tokenKey));
+        return Optional.ofNullable((Token) hashOperations.get(KEYNAME, tokenKey));
     }
 
     @Override

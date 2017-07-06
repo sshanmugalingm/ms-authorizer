@@ -2,6 +2,7 @@ package au.com.bglcorp.service.token;
 
 import au.com.bglcorp.domain.redis.Token;
 import au.com.bglcorp.domain.token.TokenPayload;
+import au.com.bglcorp.exception.InvalidTokenException;
 import au.com.bglcorp.repository.redis.TokenRepository;
 import au.com.bglcorp.util.JsonUtil;
 import au.com.bglcorp.util.TokenUtil;
@@ -42,6 +43,7 @@ public class TokenStoreServiceImpl implements TokenStoreService {
     }
 
     public Boolean deleteToken(String token) {
+        tokenRepository.findByTokenKey(token).orElseThrow(() -> new InvalidTokenException("Could not validate token"));
         tokenRepository.deleteToken(token);
         return true;
     }

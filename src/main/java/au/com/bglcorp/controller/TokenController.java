@@ -44,8 +44,8 @@ public class TokenController {
         return authorizationService.isAuthorized(tokenPayload.orElseThrow(() -> new InvalidTokenException("Could not validate token")), tokenDetails);
     }
 
-    @RequestMapping(path = "/removeTokens", method = RequestMethod.DELETE)
-    public Boolean removeTokens(@RequestBody String token) {
+    @RequestMapping(path = "/removeToken", method = RequestMethod.DELETE)
+    public Boolean removeToken(@RequestBody String token) {
 
         Assert.notNull(token, "Token cannot be null");
         tokenStoreService.deleteToken(token);
