@@ -1,4 +1,4 @@
-****MICRO SERVICE AUTHORIZATION
+#MICRO SERVICE AUTHORIZATION
 
 This is a Spring Boot based Micro Service Authorization Micro Service.  This uses Java 8 and Gradle as the build system.  
 In order to use this we do not need to install Gradle in our workspace.
@@ -10,7 +10,7 @@ This Micro Service has exposed 03 endpoints related to managing authorization.
     3. Remove Token
 
 
-1. Request Token
+**1. Request Token**
 
     This will create a new token if one does not exist.  If a token exists then it will return the existing token.
     The Micro Service, uses JWT for token creation.
@@ -36,7 +36,7 @@ This Micro Service has exposed 03 endpoints related to managing authorization.
                   }' 
              http://<url>/token/requestToken
 
-2. Validate Token
+**2. Validate Token**
 
     This will validate the provided token to see if the token is authenticated and then authorize if a user can access a particular resource.
     
@@ -58,7 +58,7 @@ This Micro Service has exposed 03 endpoints related to managing authorization.
                   }' 
               http://<url>/token/validateToken
  
- 3. Remove Token
+**3. Remove Token**
  
      This will remove a provided token from it's token store.
      
