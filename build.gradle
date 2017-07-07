@@ -37,5 +37,6 @@ dependencies {
 
 	runtime('org.springframework.boot:spring-boot-devtools')
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
 }
