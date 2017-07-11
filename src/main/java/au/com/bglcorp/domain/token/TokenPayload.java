@@ -24,6 +24,10 @@ public class TokenPayload implements Serializable {
         this.authorities = authorities;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public Map<String, List<String>> getAuthorities() {
         return authorities;
     }

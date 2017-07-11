@@ -21,7 +21,7 @@ public class TokenStoreServiceImpl implements TokenStoreService {
     @Override
     public String createToken(String salt, TokenPayload payload) {
 
-        String token = TokenUtil.constructToken(JsonUtil.buildJsonString(payload), salt);
+        String token = TokenUtil.constructToken(JsonUtil.buildJsonString(payload.getUsername()), salt);
 
         if (!tokenRepository.findByTokenKey(token).isPresent()) {
             tokenRepository.saveToken(new Token(token, salt, payload));
@@ -35,8 +35,8 @@ public class TokenStoreServiceImpl implements TokenStoreService {
         Optional<Token> token = tokenRepository.findByTokenKey(tokenValue);
 
         if (token.isPresent()) {
-            TokenPayload tokenPayload = JsonUtil.buildObjectFromJsonString(TokenUtil.destructToken(token.get().getSalt(), tokenValue), TokenPayload.class);
-            payload =  tokenPayload.equals(token.get().getPayload()) ? Optional.of(tokenPayload) : Optional.empty();
+            String username = JsonUtil.buildObjectFromJsonString(TokenUtil.destructToken(token.get().getSalt(), tokenValue), String.class);
+            payload =  username.equals(token.get().getPayload().getUsername()) ? Optional.of(token.get().getPayload()) : Optional.empty();
         }
 
         return payload;

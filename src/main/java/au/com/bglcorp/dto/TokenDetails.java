@@ -39,7 +39,7 @@ public class TokenDetails {
 
     public void validate() {
         Assert.notNull(token, "Token cannot be null");
-        Assert.notNull(firmShortName, "Firm Short Name be null");
+        Assert.notNull(firmShortName, "Firm Short cannot Name be null");
         Assert.notNull(authorities, "Supported Authorities cannot be null");
     }
 }
